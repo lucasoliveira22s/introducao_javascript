@@ -1,0 +1,73 @@
+Até agora, discutimos a sintaxe do JavaScript, conceitos avançados como orientação a objetos e, recentemente, 
+focamos na manipulação do HTML com JavaScript.
+
+Porém, até o momento, nossa atenção tem sido no âmbito do front-end, operando no navegador sem executar rotinas no back-end. 
+Vamos abordar agora como nos comunicar com um servidor de back-end para trocar informações.
+
+As APIs são vitais nesse processo, permitindo que nossa página acesse dados e serviços externos, 
+enriquecendo a dinâmica e funcionalidades de nossos aplicativos web. Todos os frameworks de front-end, como React, Angular e Vue.js, 
+se baseiam fortemente na manipulação do DOM.
+
+Hoje, falaremos sobre a interface Fetch, uma API moderna e elegante para requisições HTTP.
+
+O protocolo HTTP é fundamental na web para requisições e respostas entre clientes e servidores. O Fetch retorna uma promise, 
+que, por sua vez, oferece um tratamento conciso. 
+
+fetch('https://api.example.com/data')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Erro:', error));
+
+As promises são cruciais no JavaScript assíncrono, onde não temos garantias sobre a velocidade de uma operação.
+
+O JavaScript é uma linguagem assíncrona por natureza, abrindo vários processos no processador, chamados threads. 
+Imaginem filas de pedágio, onde cada cancela representa um núcleo de processamento. 
+Assim, o JavaScript cria threads conforme necessário para otimizar o processamento.
+
+Promises representam eventual conclusão ou falha de operações assíncronas. 
+São amplamente usadas para lidar com tarefas que podem demorar tempo desconhecido, como chamadas de API.
+
+Além disso, abordamos a arquitetura REST, que usa métodos HTTP apropriados, como GET, POST, PUT e DELETE, 
+para interagir com recursos e realizar ações desejadas.
+
+Por fim, discutimos o Cross-Origin Resource Sharing (CORS), um mecanismo de segurança nos navegadores que restringe chamadas de recursos 
+entre diferentes domínios. Para resolver problemas de CORS, podemos configurar o servidor de back-end ou usar técnicas como JSONP ou proxy server.
+
+Vamos analisar a API Cat as a Service. Esta é uma API de pagamento que nos permite obter fotos de gatos. Ao fazer uma requisição, 
+ela nos retorna uma imagem.
+
+Para começar, criaremos um arquivo chamado API.js. Dentro dele, vamos definir uma função chamada "obterGato" 
+que fará uma requisição à API usando o fetch.
+
+function obterGato() {
+  fetch('https://cataas.com/cat')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log('Erro ao executar API', error));
+}
+
+Vamos adicionar essa função ao nosso script e chamá-la quando um botão for clicado.
+
+<script> src="js/api.js"></script>
+Ao fazer isso, a API será chamada e uma imagem de um gato será exibida.
+
+const gatosDiv = $('#gatos');
+
+function obterGato() {
+  fetch('https://cataas.com/cat')
+    .then(response => response.blob())
+    .then(blob => {
+      const imageObjectURL = URL.createObjectURL(blob);
+      const image = document.createElement('img');
+      image.src = imageObjectURL;
+      gatosDiv.append(image);
+    })
+    .catch(error => console.log('Erro ao executar API', error));
+}
+
+É importante notar a ordem de importação dos scripts e garantir que dependências, como o jQuery, estejam carregadas antes de serem usadas.
+
+Além disso, destacamos a utilidade do DOM e como podemos manipular elementos da página dinamicamente.
+
+Essa abordagem nos permite buscar dados de diferentes APIs, neste caso, imagens de gatos, e exibi-los em nossa página sem recarregá-la. 
+Isso amplia nossas possibilidades e abre portas para a criação de aplicativos mais interativos.

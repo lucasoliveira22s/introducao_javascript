@@ -1,0 +1,92 @@
+A Programação Orientada a Objetos (POO) é um paradigma que transformou a forma como os programas são projetados, desenvolvidos e mantidos. 
+Essa abordagem se baseia na modelagem do mundo real em termos de objetos e suas interações.
+
+Os pilares da POO são: abstração, encapsulamento, herança e polimorfismo.
+
+- A abstração foca nos aspectos essenciais de um objeto, ignorando detalhes menos relevantes. Por exemplo, ao representar produtos em um e-commerce, 
+podemos abstrair características específicas, como cor ou tamanho da roda;
+
+- O encapsulamento envolve esconder detalhes internos de um objeto, oferecendo uma interface clara para interagir com ele. 
+Isso permite a modificação desses detalhes sem impactar o comportamento do sistema;
+
+- A herança possibilita criar uma hierarquia de classes, onde classes mais específicas (filhas) herdam atributos e métodos de classes mais gerais (superclasse). 
+
+Isso promove a reutilização de código e relacionamentos entre classes;
+
+- O polimorfismo permite tratar diferentes classes de maneira uniforme através de uma interface comum, 
+facilitando a criação de um código mais flexível e extensível.
+
+
+Utilizamos exemplos de produtos em um e-commerce para ilustrar como a abstração é essencial: ao focar apenas nas informações relevantes, 
+como descrição e preço, simplificamos a representação dos objetos.
+
+Destacamos a importância de identificar o objeto central, neste caso, 'produto', que une diferentes itens dentro de um e-commerce. 
+Também discutimos a necessidade de selecionar atributos significativos para representar cada objeto, 
+evitando sobrecarregar o sistema com informações irrelevantes.
+
+Por fim, ilustramos como aplicar os conceitos de abstração ao analisar um aplicativo de transporte, 
+evidenciando a importância de selecionar os atributos pertinentes para uma representação eficaz.
+
+Essa prática facilita a criação de sistemas mais organizados e eficientes. Assim, a orientação a objetos nos ajuda a organizar e estruturar o código, 
+tornando-o mais modular, reutilizável e compreensível.
+
+A orientação a objeto no JavaScript não é o foco principal, pois o JavaScript não é uma linguagem 100% orientada a objetos, sendo também funcional. 
+É uma opção utilizar objetos, mas a raiz da linguagem não é baseada em objetos. Vamos abordar a orientação a objeto no JavaScript, 
+mas é importante entender que sua utilização é opcional.
+
+No projeto que iremos desenvolver, veremos que não utilizaremos orientação a objeto tanto quanto em outras linguagens. 
+Comparando JavaScript com Java e C Sharp, a estruturação de classes é muito diferente, 
+mas ainda há conceitos importantes de orientação a objeto presentes no JavaScript.
+
+Dentro da orientação a objeto no JavaScript, três elementos são importantes: classe, objeto e herança.
+
+Começando pela classe, usamos a palavra reservada 'class'. Assim como uma função, a classe cria uma definição a ser reutilizada no código. 
+A classe é uma representação do mundo real com suas características, ao invés de comportamentos. Por exemplo, 
+representamos os alunos da Devaria pela classe 'pessoa'. Isso é abstração, trazendo apenas o necessário para o nosso sistema.
+
+class Pessoa {
+  constructor(nome, idade) {
+    this.nome = nome;
+    this.idade = idade;
+  }
+}
+
+//
+
+Em seguida, temos o encapsulamento, onde as características como nome e idade pertencem à pessoa e só podem ser acessadas através dela.
+
+Depois, falamos sobre objetos, que são instâncias preenchendo o molde da classe. Cada objeto é único na memória, mesmo que compartilhe a mesma classe.
+
+const pessoa1 = new Pessoa("João", "2002-05-02");
+console.log(pessoa1.nome); // João
+
+const pessoa2 = new Pessoa("Rafael", "2006-01-22");
+console.log(pessoa2.dataNascimento); // 2006-01-22
+
+Utilizamos 'new' para criar uma nova instância e cada objeto criado tem suas próprias características. Ao acessar propriedades, 
+é importante navegar corretamente para obter os dados desejados. Esses conceitos são fundamentais para compreender a orientação a objeto.
+
+//
+
+Vamos finalizar com um aspecto importante na orientação a objeto no JavaScript, que é a herança. Agora que temos um modelo baseado no mundo real, 
+podemos utilizá-lo para criar outras funcionalidades.
+
+A herança é uma abstração da classe genérica. Por exemplo, nós somos todos pessoas, mas alguns de nós são alunos e eu sou o instrutor. 
+Podemos ter uma classe 'pessoa' que inclui nome e idade, e então ter uma classe 'aluno' que herda essas características, adicionando,
+ por exemplo, um número de matrícula.
+
+class Aluno extends Pessoa {
+  constructor(nome, idade, matricula) {
+    super(nome, idade);
+    this.matricula = matricula;
+  }
+}
+
+const aluno = new Aluno("José", "2002-05-04", "RM2504");
+console.log(aluno.nome, aluno.matricula);
+
+A herança na programação é similar à herança genética que recebemos dos nossos pais. Na programação, a classe 'pessoa' é como uma classe pai, 
+e as classes 'aluno' e 'instrutor' são seus filhos, cada uma com características específicas.
+
+A ideia é abstrair nossas entidades de forma que possamos criar filhos dessa herança com características específicas, como no caso do aluno. 
+Podemos reutilizar características já definidas na classe pai, evitando duplicação de código.

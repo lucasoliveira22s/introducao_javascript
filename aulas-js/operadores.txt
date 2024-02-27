@@ -1,0 +1,93 @@
+Operadores:
+
+Toda linguagem de programação possui operadores e é fundamental que você se acostume com eles, pois é um tópico extenso.
+
+Os operadores são símbolos especiais utilizados para executar operações matemáticas, lógicas ou de manipulação de dados em valores ou variáveis. 
+Eles são essenciais para criar expressões que realizam cálculos ou tomam decisões em um programa.
+
+Não existe nenhum programa ou software que não utilize operadores, pois, no mínimo, já vimos um deles bem famoso, talvez o mais importante, 
+que é o operador de atribuição. Não podemos ter variáveis sem um operador. É aí que está sua importância.
+
+Os operadores podem ser classificados em várias categorias, sendo os mais conhecidos os operadores aritméticos, 
+que realizam operações matemáticas básicas entre valores numéricos. 
+Eles são representados por símbolos como adição (+), subtração (-), multiplicação (*), e divisão (/).
+
+Os operadores de atribuição são usados para atribuir valores às variáveis, um dos quais já vimos em nossas aulas sobre variáveis.
+
+Outro tipo importante são os operadores de comparação, ou relacionais, que comparam valores e retornam verdadeiro ou falso, 
+sendo úteis para fazer comparações relacionais.
+
+Os operadores lógicos são amplamente utilizados devido às estruturas de repetição, 
+pois realizam operações lógicas em valores booleanos (verdadeiro ou falso). São fundamentais para fazer perguntas no código.
+
+Além desses, há os operadores de Bitwise, menos comuns, mas que trabalham com binários, 
+relevantes quando lidamos com a linguagem de baixo nível mais próxima da máquina, manipulando bits e números inteiros.
+
+Os operadores ternários são condicionais e retornam um valor com base em uma condição. Por exemplo, 
+se isso for verdadeiro, faça isso; senão, faça aquilo. Estes serão abordados em detalhes nos próximos assuntos.
+
+Vamos focar nos operadores lógicos, que são essenciais e provavelmente os mais utilizados ao longo de sua jornada na programação. 
+Eles são cruciais para fazer perguntas no código, algo que se torna necessário. Precisamos fazer perguntas, como se alguém é maior de 18 anos ou se o CPF é válido. Os operadores lógicos são responsáveis por operações com operandos booleanos e se dividem em duas categorias.
+
+//
+
+Operador Unário "!"
+
+O operador unário, representado pelo símbolo de exclamação (!), é chamado de NOT em inglês, ou negação em português. 
+Inverte o valor booleano para facilitar a verificação. Por exemplo, inverter de verdadeiro para falso. 
+Isso é útil para melhorar a compreensão da máquina e programação lógica.
+
+Para facilitar a memória, basta inverter o valor que está dentro dele. Falso se torna verdadeiro e vice-versa. O contrário de verdadeiro é falso.
+
+const valido = false;
+console.log(!valido); // resultado: true
+console.log(!true); // resultado: false
+console.log(!!valido); // resultado: false
+
+//
+
+Operador AND "&"
+
+Outro operador, representado por dois '&' comerciais (&&), é o operador AND ou '&'. Ele analisa os resultados de X e Y, ou seja, 
+sentença 1 e sentença 2, e retorna verdadeiro apenas quando ambos são verdadeiros. Se uma delas não for verdadeira, o resultado será falso.
+
+Se X é avaliado como falso, Y não será avaliado. Isso é crucial para uma lógica eficiente de programação. 
+Inserir a pergunta mais provável de resultar em falso primeiro pode tornar o código mais resiliente e eficiente. 
+Vamos explorar mais sobre isso em níveis avançados.
+
+function segundoOperador() {
+  console.log("Avaliando segundo operador.");
+  return true;
+}
+
+const a = false && segundoOperador();
+console.log(a); // resultado: false
+const b = true && segundoOperador();
+console.log(b); // resultado: Avaliando segundo operador. true
+
+//
+
+Operador OR "||"
+
+Vamos explorar agora o operador 'ou', representado por '||' em JavaScript. Ele significa que, se uma sentença ou outra for verdadeira, 
+o resultado é verdadeiro. Mesmo que a primeira seja falsa, o código checará a segunda. O oposto do 'e', onde a checagem para se a primeira instrução é falsa, é o 'ou', que sempre checa ambas.
+
+O operador 'ou' é representado por '||'. Se a primeira condição é verdadeira, a segunda não é avaliada. 
+Se pelo menos uma das perguntas for verdadeira, o resultado será true. A mesma lógica se aplica: true || false é true.
+
+Podemos visualizar isso em um código que testa diferentes combinações de true e false. Por exemplo, true || true resulta em true, 
+enquanto !true || true resulta em true também. Se ambas são false, o resultado é false.
+
+function segundoOperador() {
+  console.log("Avaliando segundo operador.");
+  return true;
+}
+
+const a = false || segundoOperador();
+console.log(a); // resultado: true
+
+const b = true || segundoOperador();
+console.log(b); // resultado: Avaliando segundo operador. true
+
+const c = !b || !a;
+console.log(c); // resultado: Avaliando a negação de a e b. false

@@ -1,0 +1,55 @@
+Estrutura de repetição:
+
+for;
+while;
+do-while;
+for-of;
+
+//
+
+For (faça-para):
+O for é adequado quando conhecemos a quantidade de repetições necessárias. Ele cria uma variável de controle, 
+verifica uma condição e incrementa a variável a cada loop. As instruções dentro do escopo são executadas a cada novo loop. 
+É útil quando sabemos antecipadamente quantas vezes precisamos iterar.
+
+for (let pneusTrocados = 0; pneusTrocados < 4; pneusTrocados++) {
+    trocarPneu();
+}
+
+//
+
+While (enquanto):
+O while é útil quando a condição de parada não depende de um número fixo de repetições, mas sim de uma condição. 
+As instruções dentro do escopo são executadas enquanto a condição for verdadeira.
+
+let temCarroNaFila = true;
+
+while (temCarroNaFila) {
+  lavarCarro();
+  temCarroNaFila = verificarTemCarroNaFila();
+}
+
+//
+
+Do-while (faça-enquanto):
+Semelhante ao while, mas garante que o código seja executado pelo menos uma vez antes de verificar a condição. 
+Útil quando você precisa executar algo pelo menos uma vez para então decidir se deve continuar.
+
+let atividadesPendentes;
+
+do {
+    atividadesPendentes = consultarAgendaDeHoje();
+    informarAtividades(atividadesPendentes);
+    await umaHora();
+} while (atividadesPendentes.length > 0);
+
+//
+
+For-of (para-cada):
+O for-of é especialmente útil para percorrer elementos de uma lista, como um array. 
+Ele extrai uma variável contendo um dos itens da lista a cada loop até que não haja mais itens a serem usados.
+
+const novosAlunos = ["João", "Felipe", "Alfredo"];
+for (const aluno of novosAlunos) {
+    darBoasVindas(aluno);
+}

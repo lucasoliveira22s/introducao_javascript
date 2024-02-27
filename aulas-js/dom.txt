@@ -1,0 +1,120 @@
+DOM (Document Object Model)
+
+O DOM é uma representação em forma de árvore de um documento HTML ou XML, permitindo que scripts, como o JavaScript, 
+interajam e manipulem os elementos e conteúdos em uma página web.
+
+Com o DOM, podemos alterar dinamicamente o conteúdo, estilo e comportamento de uma página sem a necessidade de recarregá-la.
+
+Vamos ver tudo na prática. Vimos o DOM diversas vezes, mas sem a devida atenção.
+
+Toda vez que abrimos um site e olhamos no inspetor, vemos o DOM, que é a estrutura do HTML. 
+Essa estrutura é essencial para que possamos manipulá-la e, assim, modificar a interface do navegador.
+
+O JavaScript é crucial para a dinâmica da web atual, pois pode manipular o DOM. Para acessar os elementos HTML usando JavaScript, 
+podemos usar métodos como getElementById, getElementsByClassName, getElementsByTagName, ou os mais recentes, querySelector e querySelectorAll.
+
+Por exemplo, com getElementById, podemos pegar um elemento da tela pelo ID e manipular seu conteúdo ou estilo. 
+Também podemos criar e adicionar novos elementos no DOM e remover elementos existentes.
+
+// Exemplo usando getElementById:
+let meuElemento = document.getElementById('id-do-elemento');
+
+// Exemplo de mudança de conteúdo:
+meuElemento.textContent = 'Novo texto';
+
+// Mudando a cor de fundo do elemento:
+meuElemento.style.backgroundColor = 'blue';
+
+// Criando um novo elemento <p>:
+let novoParagrafo = document.createElement('p');
+novoParagrafo.textContent = 'Novo parágrafo adicionado';
+document.body.appendChild(novoParagrafo);
+
+// Exemplo de remoção de elemento:
+let elementoParaRemover = document.getElementById('elemento-para-remover');
+elementoParaRemover.parentNode.removeChild(elementoParaRemover);
+
+Agora teremos uma estrutura para entender melhor e trabalhar de forma mais dinâmica com a nossa tela.
+
+Dentro do HTML, temos três principais métodos de seleção: por ID, por classe e por tag. O ID é único, 
+enquanto a classe pode ser utilizada por vários elementos. Utilizamos menos a seleção por tag.
+
+Agora, vamos criar uma função que manipula o DOM. Vamos mudar o título e mexer no estilo dos elementos com margem top.
+
+const divs = document.getElementsByTagName('div');
+console.log('Divs:', divs);
+
+const h2s = document.getElementsByTagName('h2');
+console.log('H2s:', h2s);
+
+const titulo = document.getElementById('titulo');
+console.log('Título:', titulo);
+
+const elementsMarginTop2 = document.getElementsByClassName('mt-2');
+console.log('Elementos com classe mt-2:', elementsMarginTop2);
+
+É importante notar que devemos executar scripts de manipulação do HTML depois que ele estiver montado para garantir que a 
+manipulação funcione corretamente.
+
+Vamos criar uma função chamada "alterarHTML" para modificar o título e o estilo dos elementos.
+
+function alterarHtml() {
+  titulo.textContent = 'Novo título';
+  titulo.style.color = '#ac4389';
+  // Para alterar a classe de elementsMarginTop2
+  // elementsMarginTop2.className = 'mt-4';
+}
+
+O jQuery é uma biblioteca JavaScript amplamente usada que simplifica a manipulação do DOM e a interação com elementos HTML, 
+tornando o desenvolvimento web mais eficiente.
+
+Com o jQuery, podemos selecionar elementos, manipular eventos e fazer animações de forma mais fácil, 
+eliminando a necessidade de códigos extensos.
+
+Para adicionar o jQuery a um projeto, é possível fazer o download do arquivo ou incluir um link para ele no HTML. 
+No caso do Bootstrap, ele já inclui o jQuery. Podemos verificar isso no código.
+
+<script src="jquery-3.6.0.min.js"></script>
+
+O jQuery usa o cifrão ($) como identificador principal para selecionar elementos.
+
+
+Podemos selecionar elementos por ID (#):
+
+// Selecionando um elemento por ID
+let meuElemento = $('#id-do-elemento');
+
+
+Por classe (.):
+
+// Selecionando elementos por classe
+let elementosDaClasse = $('.minha-classe');
+
+
+Ou sem nenhum identificador para elementos HTML:
+
+// Selecionando elementos por tag
+let paragrafos = $('p');
+
+
+Para modificar o conteúdo, usamos 'text' para texto e 'css' para propriedades de estilo:
+
+//Mudando o texto de um elemento
+meuElemento.text('Novo texto');
+
+//Mudando a cor de fundo do elemento
+meuElemento.css('background-color', 'blue')
+
+Podemos também adicionar eventos, como 'click', utilizando o método correspondente do jQuery e passando a função a ser executada.
+
+A sintaxe jQuery simplifica bastante o código comparado ao uso direto do DOM.
+
+// Adicionando um manipulador de evento de clique
+meuElemento.click(function() {
+  alert('Elemento clicado!');
+});
+
+Para adicionar classes ou fazer manipulações, usamos métodos como 'addClass', 'removeClass' e 'toggleClass'. 
+Para adicionar elementos, usamos 'append' ou 'after'.
+
+Vale ressaltar que o uso do jQuery melhora a legibilidade e reduz a complexidade do código.
